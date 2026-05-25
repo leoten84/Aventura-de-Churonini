@@ -1,343 +1,590 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Apoya a Churonini 💖</title>
 
-<!-- Fuente -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Churonini 💖 | Apoya nuestro contenido</title>
+
+<meta name="description" content="Apoya a Churonini y ayúdanos a crear videos divertidos, blogs y contenido familiar en TikTok.">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=sb&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 
 <style>
+
+:root{
+    --bg1:#0f0c1f;
+    --bg2:#1d1735;
+    --card:#171727ee;
+    --pink:#ff7eb3;
+    --pink2:#ff4f87;
+    --cyan:#25F4EE;
+    --white:#ffffff;
+    --soft:#d7d7d7;
+}
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Inter',sans-serif;
-    background:linear-gradient(135deg,#0f0c1f 0%,#1b1230 100%);
+    background:linear-gradient(135deg,var(--bg1),var(--bg2));
     color:white;
+    overflow-x:hidden;
     min-height:100vh;
-    padding:20px;
 }
+
+/* ========================= */
+/* FONDO ANIMADO */
+/* ========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.bubble{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.03);
+    animation:float 18s infinite linear;
+}
+
+.bubble:nth-child(1){
+    width:240px;
+    height:240px;
+    top:-80px;
+    left:-80px;
+}
+
+.bubble:nth-child(2){
+    width:180px;
+    height:180px;
+    bottom:60px;
+    right:-60px;
+}
+
+.bubble:nth-child(3){
+    width:120px;
+    height:120px;
+    top:50%;
+    left:60%;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-30px) rotate(180deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(360deg);
+    }
+
+}
+
+/* ========================= */
+/* CONTENEDOR */
+/* ========================= */
 
 .container{
-    max-width:1000px;
+    width:100%;
+    max-width:1100px;
     margin:auto;
+    padding:25px;
 }
+
+/* ========================= */
+/* TARJETA */
+/* ========================= */
 
 .card{
-    background:rgba(25,25,40,0.85);
-    backdrop-filter:blur(10px);
-    border-radius:30px;
-    padding:35px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    background:var(--card);
+    backdrop-filter:blur(12px);
+    border-radius:35px;
     border:1px solid rgba(255,255,255,0.08);
+    padding:45px;
+    box-shadow:0 20px 70px rgba(0,0,0,0.4);
+    margin-top:25px;
 }
 
-/* Badge TikTok */
+/* ========================= */
+/* BADGE */
+/* ========================= */
+
 .badge{
     display:inline-flex;
     align-items:center;
     gap:8px;
     background:black;
     padding:10px 18px;
-    border-radius:100px;
+    border-radius:999px;
     font-weight:700;
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
 .badge i{
-    color:#25F4EE;
+    color:var(--cyan);
 }
 
-/* Perfil */
-.profile{
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
     text-align:center;
-    margin-bottom:25px;
 }
 
-.profile img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
+.profile-pic{
+    width:180px;
+    height:180px;
     object-fit:cover;
-    border:5px solid #ff7eb3;
-    box-shadow:0 0 25px rgba(255,126,179,0.5);
-    margin-bottom:15px;
+    border-radius:50%;
+    border:5px solid var(--pink);
+    box-shadow:0 0 40px rgba(255,126,179,0.4);
+    margin-bottom:22px;
+    animation:pulse 3s infinite;
 }
 
-.profile h1{
-    font-size:2.8rem;
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.hero h1{
+    font-size:3.2rem;
     font-weight:800;
-    background:linear-gradient(135deg,#FFE6F0,#FFA0C0);
+    margin-bottom:15px;
+
+    background:linear-gradient(135deg,#ffffff,#ffb6d3);
     -webkit-background-clip:text;
     color:transparent;
-    margin-bottom:10px;
 }
 
-.profile p{
-    max-width:750px;
+.hero p{
+    max-width:800px;
     margin:auto;
-    color:#ddd;
-    font-size:1.05rem;
-    line-height:1.7;
+    color:var(--soft);
+    line-height:1.8;
+    font-size:1.1rem;
 }
 
-/* Meta */
-.goal-container{
-    background:rgba(0,0,0,0.35);
-    border-radius:22px;
-    padding:22px;
-    margin-top:30px;
+/* ========================= */
+/* REDES */
+/* ========================= */
+
+.social-buttons{
+    margin-top:28px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
 }
 
-.goal-stats{
+.social-buttons a{
+    text-decoration:none;
+    color:white;
+    background:#292942;
+    padding:13px 22px;
+    border-radius:999px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.social-buttons a:hover{
+    background:var(--pink2);
+    transform:translateY(-3px);
+}
+
+/* ========================= */
+/* META */
+/* ========================= */
+
+.goal-box{
+    margin-top:40px;
+    background:rgba(0,0,0,0.28);
+    border-radius:25px;
+    padding:25px;
+}
+
+.goal-top{
     display:flex;
     justify-content:space-between;
     gap:10px;
-    margin-bottom:12px;
-    font-weight:700;
     flex-wrap:wrap;
+    margin-bottom:15px;
+    font-weight:700;
 }
 
-.progress-bar{
+.progress{
     width:100%;
-    height:16px;
-    background:#2d2d44;
-    border-radius:100px;
+    height:18px;
+    background:#2b2b45;
+    border-radius:999px;
     overflow:hidden;
 }
 
 .progress-fill{
-    height:100%;
     width:68%;
-    background:linear-gradient(90deg,#ff6a88,#ff99ac);
-    border-radius:100px;
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--pink2),var(--pink));
+    transition:1s ease;
 }
 
 .goal-text{
-    margin-top:10px;
-    font-size:0.95rem;
-    color:#ccc;
+    margin-top:12px;
+    color:#cccccc;
 }
 
-/* Video */
-.video-preview{
-    margin-top:35px;
-    border-radius:25px;
+/* ========================= */
+/* VIDEO */
+/* ========================= */
+
+.video-section{
+    margin-top:40px;
+    border-radius:28px;
     overflow:hidden;
-    background:#111;
-    text-align:center;
+    background:#101010;
 }
 
-.video-preview img{
+.video-section video{
     width:100%;
     display:block;
 }
 
-.video-preview p{
-    padding:14px;
+.video-section img{
+    width:100%;
+    display:block;
 }
 
-/* Donaciones */
-.donation-section{
+.video-caption{
     text-align:center;
-    margin-top:40px;
+    padding:15px;
+    color:#dddddd;
 }
 
-.donation-section h2{
-    margin-bottom:10px;
+/* ========================= */
+/* FEATURES */
+/* ========================= */
+
+.features{
+    margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+
+.feature{
+    background:rgba(255,255,255,0.04);
+    padding:25px;
+    border-radius:24px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.feature:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.06);
+}
+
+.feature i{
     font-size:2rem;
+    margin-bottom:15px;
+    color:var(--pink);
 }
 
-.donation-section p{
-    color:#ccc;
+.feature h3{
+    margin-bottom:10px;
+}
+
+/* ========================= */
+/* DONACIONES */
+/* ========================= */
+
+.donation{
+    margin-top:50px;
+    text-align:center;
+}
+
+.donation h2{
+    font-size:2.3rem;
+    margin-bottom:12px;
+}
+
+.donation p{
+    color:#d0d0d0;
     margin-bottom:25px;
 }
 
-/* Actualizaciones */
+/* ========================= */
+/* ACTUALIZACIONES */
+/* ========================= */
+
 .updates{
-    margin-top:40px;
+    margin-top:55px;
 }
 
-.updates h3{
+.updates h2{
     margin-bottom:20px;
-    font-size:1.5rem;
+    font-size:1.8rem;
 }
 
 .update{
     background:rgba(255,255,255,0.05);
-    padding:18px;
-    border-radius:18px;
+    padding:22px;
+    border-radius:22px;
     margin-bottom:15px;
 }
 
 .update strong{
     display:block;
     margin-bottom:8px;
-    color:#ffb3ca;
+    color:#ffb8d2;
 }
 
-/* Redes */
-.socials{
-    margin-top:40px;
-    text-align:center;
-}
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 
-.socials a{
-    color:white;
-    font-size:2rem;
-    margin:0 10px;
-    transition:0.3s;
-}
-
-.socials a:hover{
-    color:#ff7eb3;
-    transform:scale(1.1);
-}
-
-/* Footer */
 footer{
     text-align:center;
-    margin-top:30px;
-    opacity:0.7;
+    margin:35px 0;
+    color:#aaaaaa;
     font-size:0.9rem;
 }
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
 
 @media(max-width:768px){
 
     .card{
-        padding:22px;
+        padding:25px;
     }
 
-    .profile h1{
-        font-size:2rem;
+    .hero h1{
+        font-size:2.3rem;
     }
 
-    .profile img{
-        width:120px;
-        height:120px;
+    .profile-pic{
+        width:140px;
+        height:140px;
     }
 
-    .goal-stats{
-        flex-direction:column;
-    }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- Fondo -->
+<div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+</div>
+
 <div class="container">
 
     <div class="card">
 
-        <!-- Badge -->
+        <!-- TikTok -->
         <div class="badge">
             <i class="fab fa-tiktok"></i>
             @churonini
         </div>
 
-        <!-- Perfil -->
-        <div class="profile">
+        <!-- HERO -->
+        <section class="hero">
 
-            <!-- FOTO DE PERFIL -->
-            <!-- CAMBIA ESTA URL POR LA FOTO REAL -->
-            <img src="https://placehold.co/300x300/png?text=Churonini" alt="Foto de perfil de Churonini">
+            <!-- CAMBIA ESTA FOTO -->
+            <img
+                src="https://placehold.co/400x400/png?text=Churonini"
+                alt="Foto de Churonini"
+                class="profile-pic"
+            >
 
             <h1>¡Apoya a Churonini! 💖</h1>
 
             <p>
-                Somos un emprendimiento familiar creando vídeos divertidos,
-                blogs y contenido creativo protagonizado por una niña de 8 años.
-                Tu apoyo nos ayuda a mejorar cámaras, luces, micrófonos y seguir
-                creando contenido bonito y entretenido para toda la comunidad.
+                Somos un emprendimiento familiar creando videos divertidos,
+                blogs y contenido creativo protagonizado por una niña de 8 años ✨.
+                Tu apoyo nos ayuda a mejorar cámaras, luces, audio y seguir
+                creando contenido bonito y divertido para toda la comunidad.
             </p>
 
-        </div>
+            <!-- Redes -->
+            <div class="social-buttons">
 
-        <!-- Barra -->
-        <div class="goal-container">
+                <a href="https://www.tiktok.com/@churonini" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    TikTok
+                </a>
 
-            <div class="goal-stats">
-                <span>
-                    <i class="fas fa-hand-holding-heart"></i>
-                    Recaudado:
-                    <strong id="raisedAmount">$680</strong>
-                </span>
+                <a href="https://instagram.com/cristianarroyot" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </a>
 
-                <span>
-                    Meta:
-                    <strong>$1000</strong>
-                </span>
+                <a href="https://youtube.com/@churonini" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    YouTube
+                </a>
+
             </div>
 
-            <div class="progress-bar">
+        </section>
+
+        <!-- META -->
+        <section class="goal-box">
+
+            <div class="goal-top">
+
+                <div>
+                    ❤️ Recaudado:
+                    <strong id="raisedAmount">$680</strong>
+                </div>
+
+                <div>
+                    🎯 Meta:
+                    <strong>$1000</strong>
+                </div>
+
+            </div>
+
+            <div class="progress">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
 
             <div class="goal-text">
-                <i class="fas fa-users"></i>
-                47 personas ya apoyaron esta campaña ❤️
+                👨‍👩‍👧 47 personas ya apoyaron esta campaña
             </div>
 
-        </div>
+        </section>
 
-        <!-- Video / Banner -->
-        <div class="video-preview">
+        <!-- VIDEO / IMAGEN -->
+        <section class="video-section">
 
-            <!-- CAMBIA ESTA IMAGEN -->
-            <img src="https://placehold.co/1200x500/1E1E2F/FFA0C0?text=Contenido+de+Churonini" alt="Contenido Churonini">
+            <!-- OPCIÓN 1: VIDEO -->
+            <!--
+            <video autoplay muted loop playsinline>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+            -->
+
+            <!-- OPCIÓN 2: IMAGEN -->
+            <img
+                src="https://placehold.co/1400x550/1E1E2F/FFA0C0?text=Gracias+por+apoyar+a+Churonini"
+                alt="Banner Churonini"
+            >
+
+            <div class="video-caption">
+                ✨ Gracias por formar parte de este sueño ✨
+            </div>
+
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features">
+
+            <div class="feature">
+                <i class="fas fa-video"></i>
+                <h3>Más contenido</h3>
+                <p>
+                    Nuevos videos divertidos y creativos todas las semanas.
+                </p>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-microphone"></i>
+                <h3>Mejor audio</h3>
+                <p>
+                    Micrófonos y sonido profesional para mejorar la calidad.
+                </p>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-camera"></i>
+                <h3>Nuevo equipo</h3>
+                <p>
+                    Cámaras, luces LED y accesorios para seguir creciendo.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- DONACIONES -->
+        <section class="donation">
+
+            <h2>Haz una donación 💕</h2>
 
             <p>
-                ✨ Gracias por apoyar este sueño ✨
+                Cada aporte ayuda muchísimo a seguir creando contenido.
             </p>
 
-        </div>
-
-        <!-- PayPal -->
-        <div class="donation-section">
-
-            <h2>Haz una donación</h2>
-
-            <p>
-                Cada aporte ayuda muchísimo 💕
-            </p>
-
-            <!-- BOTÓN PAYPAL -->
+            <!-- PAYPAL -->
             <div id="paypal-container-N4TKCWT46D6WJ"></div>
 
-        </div>
+        </section>
 
-        <!-- Updates -->
-        <div class="updates">
+        <!-- ACTUALIZACIONES -->
+        <section class="updates">
 
-            <h3>
+            <h2>
                 <i class="fas fa-newspaper"></i>
                 Últimas actualizaciones
-            </h3>
+            </h2>
 
             <div class="update">
+
                 <strong>
                     <i class="far fa-calendar-alt"></i>
                     20 de mayo, 2026
                 </strong>
 
                 <p>
-                    Gracias al apoyo recibido ya mejoramos el audio de los videos 🎤
+                    Gracias al apoyo recibido mejoramos el audio de los videos 🎤
                 </p>
+
             </div>
 
             <div class="update">
+
                 <strong>
                     <i class="far fa-calendar-alt"></i>
                     10 de mayo, 2026
@@ -346,55 +593,47 @@ footer{
                 <p>
                     Lanzamos oficialmente nuestra página de apoyo ❤️
                 </p>
+
             </div>
 
-        </div>
-
-        <!-- Redes -->
-        <div class="socials">
-
-            <a href="https://www.tiktok.com/@churonini" target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-
-            <a href="https://instagram.com/cristianarroyot" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="https://youtube.com/@churonini" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-
-        </div>
+        </section>
 
     </div>
 
     <footer>
-        Página oficial de apoyo a Churonini · Gracias por formar parte 💖
+        Página oficial de apoyo a Churonini · Gracias por ser parte 💖
     </footer>
 
 </div>
 
+<!-- ========================= -->
 <!-- PAYPAL -->
+<!-- ========================= -->
+
 <script>
+
 paypal.HostedButtons({
     hostedButtonId: "N4TKCWT46D6WJ",
 }).render("#paypal-container-N4TKCWT46D6WJ");
+
 </script>
 
-<!-- Barra dinámica -->
+<!-- ========================= -->
+<!-- BARRA DINÁMICA -->
+<!-- ========================= -->
+
 <script>
 
-const raisedSpan = document.getElementById('raisedAmount');
-const progressFill = document.getElementById('progressFill');
-
-let currentRaised = 680;
+const raised = 680;
 const goal = 1000;
 
-let percent = (currentRaised / goal) * 100;
+const percent = (raised / goal) * 100;
 
-raisedSpan.innerText = `$${currentRaised}`;
-progressFill.style.width = `${Math.min(percent,100)}%`;
+document.getElementById("raisedAmount").innerText =
+`$${raised}`;
+
+document.getElementById("progressFill").style.width =
+`${Math.min(percent,100)}%`;
 
 </script>
 
