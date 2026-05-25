@@ -1,251 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Apoya mi contenido en TikTok · Campaña de crowdfunding</title>
-    <!-- Google Fonts + Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f0c1f 0%, #1a1a2e 100%);
-            color: #f0f0f0;
-            line-height: 1.5;
-            padding: 1.5rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        /* Tarjeta principal */
-        .campaign-card {
-            background: rgba(22, 22, 35, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 2rem;
-            padding: 2rem;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05);
-            margin-bottom: 2rem;
-        }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #FFE6F0, #FFA0C0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-        }
-        .tiktok-badge {
-            display: inline-block;
-            background: #000;
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        .tiktok-badge i {
-            color: #25F4EE;
-            margin-right: 0.4rem;
-        }
-        .goal-container {
-            background: rgba(0,0,0,0.4);
-            border-radius: 1.5rem;
-            padding: 1.2rem;
-            margin: 1.8rem 0;
-        }
-        .goal-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .progress-bar {
-            background: #2d2d44;
-            border-radius: 40px;
-            height: 1rem;
-            overflow: hidden;
-        }
-        .progress-fill {
-            width: 68%; /* ¡Cambia este porcentaje según tu recaudación actual! */
-            background: linear-gradient(90deg, #FF6A88, #FF99AC);
-            height: 100%;
-            border-radius: 40px;
-            transition: width 0.3s ease;
-        }
-        .donation-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0 1rem;
-            justify-content: center;
-        }
-        .btn-donate {
-            background: #ff7b2c;
-            border: none;
-            padding: 0.9rem 1.8rem;
-            border-radius: 60px;
-            font-weight: bold;
-            color: white;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
-        .btn-donate i {
-            font-size: 1.3rem;
-        }
-        .btn-donate:hover {
-            background: #e05f1a;
-            transform: scale(1.02);
-        }
-        .btn-secondary {
-            background: #2c2c44;
-        }
-        .btn-secondary:hover {
-            background: #3f3f5e;
-        }
-        .video-preview {
-            margin: 1.5rem 0;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            background: #000;
-            text-align: center;
-        }
-        .video-preview img {
-            width: 100%;
-            max-height: 320px;
-            object-fit: cover;
-        }
-        .updates {
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-        }
-        .update-item {
-            background: rgba(255,255,255,0.05);
-            padding: 1rem;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-top: 3rem;
-        }
-        .social-links a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.8rem;
-            transition: 0.2s;
-        }
-        .social-links a:hover {
-            color: #FF6A88;
-        }
-        @media (max-width: 680px) {
-            .campaign-card {
-                padding: 1.2rem;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apoya a Churonini 💖</title>
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(135deg,#0f0c1f 0%,#1b1230 100%);
+    color:white;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(25,25,40,0.85);
+    backdrop-filter:blur(10px);
+    border-radius:30px;
+    padding:35px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* Badge TikTok */
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:black;
+    padding:10px 18px;
+    border-radius:100px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.badge i{
+    color:#25F4EE;
+}
+
+/* Perfil */
+.profile{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.profile img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #ff7eb3;
+    box-shadow:0 0 25px rgba(255,126,179,0.5);
+    margin-bottom:15px;
+}
+
+.profile h1{
+    font-size:2.8rem;
+    font-weight:800;
+    background:linear-gradient(135deg,#FFE6F0,#FFA0C0);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:10px;
+}
+
+.profile p{
+    max-width:750px;
+    margin:auto;
+    color:#ddd;
+    font-size:1.05rem;
+    line-height:1.7;
+}
+
+/* Meta */
+.goal-container{
+    background:rgba(0,0,0,0.35);
+    border-radius:22px;
+    padding:22px;
+    margin-top:30px;
+}
+
+.goal-stats{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:12px;
+    font-weight:700;
+    flex-wrap:wrap;
+}
+
+.progress-bar{
+    width:100%;
+    height:16px;
+    background:#2d2d44;
+    border-radius:100px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:68%;
+    background:linear-gradient(90deg,#ff6a88,#ff99ac);
+    border-radius:100px;
+}
+
+.goal-text{
+    margin-top:10px;
+    font-size:0.95rem;
+    color:#ccc;
+}
+
+/* Video */
+.video-preview{
+    margin-top:35px;
+    border-radius:25px;
+    overflow:hidden;
+    background:#111;
+    text-align:center;
+}
+
+.video-preview img{
+    width:100%;
+    display:block;
+}
+
+.video-preview p{
+    padding:14px;
+}
+
+/* Donaciones */
+.donation-section{
+    text-align:center;
+    margin-top:40px;
+}
+
+.donation-section h2{
+    margin-bottom:10px;
+    font-size:2rem;
+}
+
+.donation-section p{
+    color:#ccc;
+    margin-bottom:25px;
+}
+
+/* Actualizaciones */
+.updates{
+    margin-top:40px;
+}
+
+.updates h3{
+    margin-bottom:20px;
+    font-size:1.5rem;
+}
+
+.update{
+    background:rgba(255,255,255,0.05);
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:15px;
+}
+
+.update strong{
+    display:block;
+    margin-bottom:8px;
+    color:#ffb3ca;
+}
+
+/* Redes */
+.socials{
+    margin-top:40px;
+    text-align:center;
+}
+
+.socials a{
+    color:white;
+    font-size:2rem;
+    margin:0 10px;
+    transition:0.3s;
+}
+
+.socials a:hover{
+    color:#ff7eb3;
+    transform:scale(1.1);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    margin-top:30px;
+    opacity:0.7;
+    font-size:0.9rem;
+}
+
+@media(max-width:768px){
+
+    .card{
+        padding:22px;
+    }
+
+    .profile h1{
+        font-size:2rem;
+    }
+
+    .profile img{
+        width:120px;
+        height:120px;
+    }
+
+    .goal-stats{
+        flex-direction:column;
+    }
+}
+</style>
 </head>
+
 <body>
+
 <div class="container">
-    <div class="campaign-card">
-        <div class="tiktok-badge">
-            <i class="fab fa-tiktok"></i> @churonini
+
+    <div class="card">
+
+        <!-- Badge -->
+        <div class="badge">
+            <i class="fab fa-tiktok"></i>
+            @churonini
         </div>
-        <h1>¡Ayúdame a crecer en TikTok! 🚀</h1>
-        <p>Hago contenido sobre <strong>[tu nicho: comedia, educación, baile, etc.]</strong>. Necesito apoyo para comprar mejor equipo, luces, micrófono y poder dedicar más tiempo a crear vídeos increíbles para todos vosotros. Cada aportación, por pequeña que sea, me acerca a mi meta.</p>
-        
-        <!-- Barra de progreso estilo GoFundMe -->
+
+        <!-- Perfil -->
+        <div class="profile">
+
+            <!-- FOTO DE PERFIL -->
+            <!-- CAMBIA ESTA URL POR LA FOTO REAL -->
+            <img src="https://placehold.co/300x300/png?text=Churonini" alt="Foto de perfil de Churonini">
+
+            <h1>¡Apoya a Churonini! 💖</h1>
+
+            <p>
+                Somos un emprendimiento familiar creando vídeos divertidos,
+                blogs y contenido creativo protagonizado por una niña de 8 años.
+                Tu apoyo nos ayuda a mejorar cámaras, luces, micrófonos y seguir
+                creando contenido bonito y entretenido para toda la comunidad.
+            </p>
+
+        </div>
+
+        <!-- Barra -->
         <div class="goal-container">
+
             <div class="goal-stats">
-                <span><i class="fas fa-hand-holding-heart"></i> Recaudado: <strong id="raisedAmount">$680</strong></span>
-                <span>Meta: <strong>$1000</strong></span>
+                <span>
+                    <i class="fas fa-hand-holding-heart"></i>
+                    Recaudado:
+                    <strong id="raisedAmount">$680</strong>
+                </span>
+
+                <span>
+                    Meta:
+                    <strong>$1000</strong>
+                </span>
             </div>
+
             <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width: 68%;"></div>
+                <div class="progress-fill" id="progressFill"></div>
             </div>
-            <p style="margin-top: 0.8rem; font-size:0.9rem;"><i class="fas fa-users"></i> 47 personas ya han apoyado esta campaña</p>
+
+            <div class="goal-text">
+                <i class="fas fa-users"></i>
+                47 personas ya apoyaron esta campaña ❤️
+            </div>
+
         </div>
 
-        <!-- Botones de donación (REEMPLAZA LOS ENLACES) -->
-        <div class="donation-buttons">
-            <a href="https://www.paypal.me/tuusuario" target="_blank" class="btn-donate"><i class="fab fa-paypal"></i> PayPal</a>
-            <a href="https://buymeacoffee.com/tuusuario" target="_blank" class="btn-donate btn-secondary"><i class="fas fa-mug-hot"></i> Buy Me a Coffee</a>
-            <a href="https://ko-fi.com/tuusuario" target="_blank" class="btn-donate btn-secondary"><i class="fas fa-heart"></i> Ko-fi</a>
-            <a href="https://link.mercadopago.com/tuusuario" target="_blank" class="btn-donate btn-secondary"><i class="fas fa-credit-card"></i> Mercado Pago</a>
-        </div>
-        <p style="text-align: center; font-size: 0.85rem;">🔒 Pagos seguros a través de plataformas externas. ¡Muchas gracias!</p>
-        
-        <!-- Vista previa de tu TikTok (puedes poner un vídeo o imagen) -->
+        <!-- Video / Banner -->
         <div class="video-preview">
-            <img src="https://placehold.co/1200x400/1E1E2F/FFA0C0?text=Mira+mi+contenido+en+TikTok" alt="Preview TikTok">
-            <p style="padding: 0.5rem;">✨ Este es el tipo de contenido que quiero mejorar ✨</p>
+
+            <!-- CAMBIA ESTA IMAGEN -->
+            <img src="https://placehold.co/1200x500/1E1E2F/FFA0C0?text=Contenido+de+Churonini" alt="Contenido Churonini">
+
+            <p>
+                ✨ Gracias por apoyar este sueño ✨
+            </p>
+
         </div>
 
-        <!-- Sección de actualizaciones (como en GoFundMe) -->
+        <!-- PayPal -->
+        <div class="donation-section">
+
+            <h2>Haz una donación</h2>
+
+            <p>
+                Cada aporte ayuda muchísimo 💕
+            </p>
+
+            <!-- BOTÓN PAYPAL -->
+            <div id="paypal-container-N4TKCWT46D6WJ"></div>
+
+        </div>
+
+        <!-- Updates -->
         <div class="updates">
-            <h3><i class="fas fa-newspaper"></i> Últimas actualizaciones</h3>
-            <div class="update-item">
-                <strong><i class="far fa-calendar-alt"></i> 20 de mayo, 2025</strong>
-                <p>¡Gracias a vuestro apoyo ya tenemos un micrófono mejor! Próxima meta: trípode con luz led.</p>
+
+            <h3>
+                <i class="fas fa-newspaper"></i>
+                Últimas actualizaciones
+            </h3>
+
+            <div class="update">
+                <strong>
+                    <i class="far fa-calendar-alt"></i>
+                    20 de mayo, 2026
+                </strong>
+
+                <p>
+                    Gracias al apoyo recibido ya mejoramos el audio de los videos 🎤
+                </p>
             </div>
-            <div class="update-item">
-                <strong><i class="far fa-calendar-alt"></i> 10 de mayo, 2025</strong>
-                <p>Lanzamos la campaña oficial. Queremos llegar a 1000€ para grabar en exteriores con calidad.</p>
+
+            <div class="update">
+                <strong>
+                    <i class="far fa-calendar-alt"></i>
+                    10 de mayo, 2026
+                </strong>
+
+                <p>
+                    Lanzamos oficialmente nuestra página de apoyo ❤️
+                </p>
             </div>
+
         </div>
 
-        <!-- Perfil y redes -->
-        <div style="text-align: center; margin-top: 2rem;">
-            <div class="social-links">
-                <a href="https://tiktok.com/@churonini" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://instagram.com/cristianarroyot" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtube.com/@churonini" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p style="margin-top: 1rem;">¡Sígueme y comparte la campaña! ❤️</p>
+        <!-- Redes -->
+        <div class="socials">
+
+            <a href="https://www.tiktok.com/@churonini" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+
+            <a href="https://instagram.com/cristianarroyot" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://youtube.com/@churonini" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+
         </div>
+
     </div>
+
     <footer>
-        Esta es una página de crowdfunding independiente. Los fondos se gestionan a través de PayPal / otras plataformas. Gracias por tu confianza.
+        Página oficial de apoyo a Churonini · Gracias por formar parte 💖
     </footer>
+
 </div>
 
-<!-- Script para actualizar la barra dinámicamente (ejemplo) -->
+<!-- PAYPAL -->
 <script>
-    // Puedes modificar el monto recaudado directamente desde aquí, o incluso usar una API externa.
-    // Por ahora solo es un ejemplo estático. Cambia el valor en "raisedAmount" y el width del progress.
-    // Para hacerlo más pro: puedes leer parámetros URL o guardar en localStorage.
-    const raisedSpan = document.getElementById('raisedAmount');
-    const progressFill = document.getElementById('progressFill');
-    
-    // Ejemplo: si quieres actualizar cada cierto tiempo o simular donaciones
-    // Simplemente cambia el número y el porcentaje.
-    let currentRaised = 680;   // <-- CAMBIA ESTO MANUALMENTE cuando recibas donaciones
-    const goal = 1000;
-    let percent = (currentRaised / goal) * 100;
-    raisedSpan.innerText = `$${currentRaised}`;
-    progressFill.style.width = `${Math.min(percent, 100)}%`;
-    
-    // Si quieres que se actualice cada vez que alguien dona (usando webhooks) es más complejo.
-    // Para actualizar manualmente, solo edita el valor de "currentRaised" y recarga la página.
+paypal.HostedButtons({
+    hostedButtonId: "N4TKCWT46D6WJ",
+}).render("#paypal-container-N4TKCWT46D6WJ");
 </script>
+
+<!-- Barra dinámica -->
+<script>
+
+const raisedSpan = document.getElementById('raisedAmount');
+const progressFill = document.getElementById('progressFill');
+
+let currentRaised = 680;
+const goal = 1000;
+
+let percent = (currentRaised / goal) * 100;
+
+raisedSpan.innerText = `$${currentRaised}`;
+progressFill.style.width = `${Math.min(percent,100)}%`;
+
+</script>
+
 </body>
 </html>
